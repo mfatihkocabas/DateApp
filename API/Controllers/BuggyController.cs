@@ -1,3 +1,4 @@
+using System;
 using API.Data;
 using API.Entities;
 using Microsoft.AspNetCore.Authorization;
@@ -16,22 +17,24 @@ namespace API.Controllers
         [HttpGet("not-fount")]
         public ActionResult<AppUser> GetNotFound()
         {
-            var thing =_context.Users.Find(-1);
-            if (thing==null) return NotFound();
-            return Ok(thing);
-        }
-        [HttpGet("server-error")]
-        public ActionResult<string> GetServerError()
-         {
-            var thing = _context.Users.Find(-1);
-            var thingToReturn = thing.ToString();
-            return thingToReturn;
+        
+                var thing = _context.Users.Find(-1);
+                if (thing == null) return NotFound();
+                return Ok(thing);
 
         }
-        [HttpGet("bad-request")]
-        public ActionResult<string> GetBasRequest()
-        {
-            return BadRequest("This was not a good request");
+            [HttpGet("server-error")]
+            public ActionResult<string> GetServerError()
+            {
+                var thing = _context.Users.Find(-1);
+                var thingToReturn = thing.ToString();
+                return thingToReturn;
+
+            }
+            [HttpGet("bad-request")]
+            public ActionResult<string> GetBasRequest()
+            {
+                return BadRequest("This was not a good request");
+            }
         }
     }
-}
