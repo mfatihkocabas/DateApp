@@ -1,0 +1,11 @@
+<h4>Internal server error - refresing the page will make the error dissappear</h4>
+<ng-container *ngIf="error" >
+    <h5 class="text-danger">Error : {{error.message}}</h5>
+    <p class= "font-weight-bold"> Notes:If you re seeing any problem contact the adminastor </p>
+    <p>What to do next</p>
+    <ol>
+        <li>Open the chrome dev tools</li>
+        <li>Inspect the network tab</li>
+        <li>examine this problem</li>
+    </ol>
+</ng-container>
